@@ -1,12 +1,12 @@
 import { FaPhone } from "react-icons/fa6";
-import { IoMdContact } from "react-icons/io";
+import { BsPeopleFill } from "react-icons/bs";
 import s from "./Contact.module.css";
-export const Contact = ({ name, number }) => {
+export const Contact = ({ id, name, number, onChangeContact }) => {
   return (
     <div className={s.wrapper}>
       <div className={s.contactInfo}>
         <div className={s.contactData}>
-          <IoMdContact />
+          <BsPeopleFill />
           <p>{name}</p>
         </div>
         <div className={s.contactData}>
@@ -14,7 +14,9 @@ export const Contact = ({ name, number }) => {
           <p>{number}</p>
         </div>
       </div>
-      <button className={s.buttonDelete}>Delete</button>
+      <button className={s.buttonDelete} onClick={() => onChangeContact(id)}>
+        Delete
+      </button>
     </div>
   );
 };
